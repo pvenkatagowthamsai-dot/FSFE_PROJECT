@@ -95,18 +95,16 @@ flowchart TD
 From the customer dashboard, customers can browse the catalog, add products to their cart, and continue to checkout. Trying an outfit on a virtual model is optional.
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["Customer Login"] --> B["Customer Dashboard"]
     B --> C["Open Catalog"]
     C --> D["Browse Men’s and Women’s Clothing"]
     D --> E["Select Products"]
     E --> F["Add Products to Cart"]
-
     F --> G{"Preview on a model?"}
     G -->|"Yes"| H["Choose a model and preview outfit"]
     G -->|"No"| I["Continue to checkout"]
     H --> I
-
     I --> J["Enter delivery address"]
     J --> K["Choose payment option"]
     K --> L["Review and confirm order"]
