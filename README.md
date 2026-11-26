@@ -210,6 +210,6 @@ flowchart LR
 
 ### **Fashion for Men. Fashion for Women. Style for Everyone.**
 
-*Find your style with ƒιтѕу.* 👗
+*Find your style with ƒιTѕу.* 👗
 
 </div>
