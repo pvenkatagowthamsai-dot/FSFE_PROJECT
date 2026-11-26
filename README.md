@@ -2,11 +2,11 @@
 
 # 👗 FITSY 👔
 
-### 👧🏻 Girls’ Fashion · 👦🏻 Boys’ Fashion · ✨ Your Style
+### ✨ Digital Fashion & 3D Runway Clothing Portal ✨
 
-**Discover outfits. Explore every angle. Find your FITSY style.**
+**Discover your style. Explore every detail. Shop with FITSY.**
 
-A digital fashion shopping app featuring clothing collections, 360° garment views, virtual runway styling, and store management.
+A digital fashion app for exploring **Men’s and Women’s collections**, viewing garments in 360°, and styling outfits on a virtual runway.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -14,7 +14,6 @@ A digital fashion shopping app featuring clothing collections, 360° garment vie
 ![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 </div>
 
@@ -22,123 +21,165 @@ A digital fashion shopping app featuring clothing collections, 360° garment vie
 
 ## 📖 About FITSY
 
-**FITSY** is a digital fashion shopping app for discovering clothing and creating new looks. Browse collections for girls and boys, explore garments with interactive 360° views, and preview outfits on virtual runway models.
+**FITSY** is a digital fashion shopping app designed to make clothing discovery more interactive. Customers can explore **Men’s and Women’s collections**, view garments from different angles using 360° visualization, and preview outfits on virtual runway models.
 
-FITSY also includes an owner studio for managing clothing products, runway demonstrations, and customer orders.
-
----
-
-## ✨ What You Can Do
-
-- 👗 **Explore girls’ fashion** and discover outfit ideas.
-- 👔 **Browse boys’ clothing** and find styles for every look.
-- 🛍️ **Shop clothing collections** with search and category filters.
-- 🔄 **View garments in 360°** to inspect their design from different angles.
-- 🧍 **Preview runway outfits** on virtual models.
-- 🛒 **Continue to checkout** with delivery and payment options.
-- 🎨 **Manage the store** through the owner studio.
-- 📦 **Review customer orders** in the owner dashboard.
-- 📱 **Browse on mobile or desktop** with a responsive interface.
+FITSY also provides store owners with a dashboard to manage products, runway demonstrations, and customer orders.
 
 ---
 
-## 🛒 Shopping Flow
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🛍️ **Fashion Catalog** | Browse Men’s and Women’s collections with search and category filters. |
+| 🔄 **360° Studio View** | Rotate garments and inspect their designs from different angles. |
+| 👗 **Virtual Runway** | Preview styled outfits on virtual models. |
+| 🔐 **Account Access** | New customers can sign up; existing customers and owners can log in. |
+| 📍 **Checkout** | Enter delivery details and review order information. |
+| 📦 **Order Management** | Owners can review and manage customer orders. |
+| 🎨 **Owner Dashboard** | Owners can manage products and runway demonstrations. |
+| 📱 **Responsive Design** | Browse FITSY on desktop and mobile screens. |
+
+---
+
+## 🔐 Customer and Owner Access
+
+FITSY uses **one shared login page**. After the account details are checked, the user is directed to the appropriate area.
+
+- **New customer:** Sign up first, then log in.
+- **Existing customer:** Log in with a phone number and password.
+- **Owner:** Log in with a phone number, email address, and password.
 
 ```mermaid
 flowchart TD
-    A["👋 Open FITSY"] --> B["🛍️ Browse Girls' and Boys' Fashion"]
-    B --> C["👗 Choose an Outfit"]
-    C --> D["🔄 Explore the 360° View"]
-    C --> E["✨ Preview the Virtual Runway"]
-    D --> F["🛒 Add to Shopping Bag"]
-    E --> F
-    F --> G["📍 Enter Delivery Details"]
-    G --> H["💳 Choose a Payment Option"]
-    H --> I["✅ Place Order"]
+    A["👋 Open FITSY"] --> B["🔐 Shared Login Page"]
+    B --> C{"Does the customer already have an account?"}
+
+    C -->|"No"| D["📝 Customer Sign Up"]
+    D --> E["✅ Account Created"]
+    E --> F["🔑 Customer Login"]
+
+    C -->|"Yes"| F
+    F --> G["📱 Enter Phone Number and Password"]
+    G --> H{"Customer details valid?"}
+    H -->|"Yes"| I["🛍️ Customer Storefront"]
+    H -->|"No"| J["⚠️ Show Login Error"]
+
+    B --> K["👑 Owner Login"]
+    K --> L["📱 Enter Phone Number, Email, and Password"]
+    L --> M{"Owner details valid?"}
+    M -->|"Yes"| N["🎨 Owner Dashboard"]
+    M -->|"No"| J
 ```
 
 ---
 
-## 🏗️ How FITSY Works
+## 🛍️ Customer Shopping Journey
+
+Customers can browse Men’s and Women’s clothing, explore garments, and place orders.
 
 ```mermaid
 flowchart LR
-    Customer["👤 Customer"] --> App["👗 FITSY App"]
+    A["🛍️ Customer Storefront"] --> B["Browse Men's and Women's Collections"]
+    B --> C["Choose a Garment"]
+    C --> D["🔄 View Garment in 360° Studio"]
+    C --> E["👗 Preview Outfit on Virtual Runway"]
+    D --> F["🛒 Add to Shopping Bag"]
+    E --> F
+    F --> G["📍 Enter Delivery Details"]
+    G --> H["💳 Review Payment Options"]
+    H --> I["✅ Place Order"]
+    I --> J["📦 Order Added to Store Orders"]
+```
 
-    subgraph Shopping["🛍️ Shopping Experience"]
-        App --> Catalog["Girls' and Boys' Catalog"]
-        App --> Studio["360° Garment Studio"]
-        App --> Runway["Virtual Runway"]
-        App --> Checkout["Checkout"]
+---
+
+## 👑 Owner Dashboard
+
+The owner dashboard provides product, runway, and order management tools. Depending on the application’s implementation, these actions can create, view, update, or delete records in the database.
+
+```mermaid
+flowchart TD
+    A["👑 Owner Login"] --> B["📊 Owner Dashboard"]
+    B --> C["👕 Manage Products"]
+    B --> D["✨ Manage Runway Demonstrations"]
+    B --> E["📦 Manage Customer Orders"]
+
+    C --> C1["➕ Create Product"]
+    C --> C2["🔍 View Products"]
+    C --> C3["✏️ Update Product"]
+    C --> C4["🗑️ Delete Product"]
+
+    D --> D1["➕ Add Demonstration"]
+    D --> D2["✏️ Update Styling"]
+    D --> D3["🗑️ Remove Demonstration"]
+
+    E --> E1["🔍 View Orders"]
+    E --> E2["✏️ Update Order Details"]
+    E --> E3["🗑️ Remove Order"]
+
+    C1 --> F[("💾 Application Database")]
+    C2 --> F
+    C3 --> F
+    C4 --> F
+    D1 --> F
+    D2 --> F
+    D3 --> F
+    E1 --> F
+    E2 --> F
+    E3 --> F
+```
+
+---
+
+## 🏗️ FITSY System Architecture
+
+```mermaid
+flowchart LR
+    Customer["🛍️ Customer"] --> WebApp["👗 FITSY Web App"]
+    Owner["👑 Store Owner"] --> WebApp
+
+    subgraph Frontend["🖥️ Frontend"]
+        WebApp --> Catalog["Men's and Women's Catalog"]
+        WebApp --> Studio["360° Studio"]
+        WebApp --> Runway["Virtual Runway"]
+        WebApp --> Login["Sign Up and Login"]
+        WebApp --> Dashboard["Owner Dashboard"]
     end
 
     Catalog --> Server["⚙️ Node.js Server"]
     Studio --> Server
     Runway --> Server
-    Checkout --> Server
+    Login --> Server
+    Dashboard --> Server
 
     Server --> Database[("💾 SQLite Database")]
-    Owner["🎨 Store Owner"] --> Dashboard["Owner Studio"]
-    Dashboard --> Server
 ```
 
 ---
 
-## 👥 Customer and Owner
+## 🧰 Technology Stack
 
-```mermaid
-flowchart TD
-    Login["🔐 Sign in to FITSY"] --> Role{"Choose account role"}
-
-    Role -->|"Customer"| Customer["🛍️ Shop on FITSY"]
-    Customer --> Browse["Browse clothing"]
-    Customer --> Style["View 360° garments and runway outfits"]
-    Customer --> Buy["Checkout and place an order"]
-
-    Role -->|"Store Owner"| Owner["🎨 Open Owner Studio"]
-    Owner --> Products["Manage clothing products"]
-    Owner --> Runway["Manage runway demonstrations"]
-    Owner --> Orders["Review customer orders"]
-```
-
----
-
-## 🧰 Technology
-
-| Part of the App | Technologies |
+| Area | Technologies |
 |---|---|
-| **Web Interface** | HTML5, CSS3, JavaScript |
-| **3D Fashion Views** | Three.js, WebGL |
+| **Frontend** | HTML5, CSS3, JavaScript, TypeScript |
+| **3D Visualization** | Three.js, WebGL |
 | **Build Tool** | Vite |
-| **Server** | Node.js |
+| **Backend** | Node.js |
 | **Database** | SQLite |
 | **Maps and Location** | Leaflet.js, OpenStreetMap Nominatim |
 | **Version Control** | Git, GitHub |
 
 ---
 
-## ⚙️ Run FITSY Locally
+## 🌟 Why FITSY?
 
-You’ll need **Node.js** and **npm** installed.
-
-```bash
-# Install the main project dependencies
-npm install
-
-# Build the studio
-cd studio
-npm install
-npm run build
-cd ..
-
-# Synchronize the built files
-node scripts/extracted_rebuild_script.js
-
-# Start the server
-node server.js
-```
-
-Then open **http://localhost:5000/** in your browser.
+- 👔 Explore clothing from **Men’s and Women’s collections**.
+- 🔄 Inspect garments with interactive 360° views.
+- ✨ Preview outfits on a virtual runway.
+- 🔐 Use a shared sign-in page with separate customer and owner access.
+- 📦 Give owners tools to manage products, runway demonstrations, and orders.
+- 📱 Browse using a responsive interface.
 
 ---
 
@@ -146,11 +187,15 @@ Then open **http://localhost:5000/** in your browser.
 
 <div align="center">
 
-| Student ID | Team Member |
+### ✨ Meet the Team ✨
+
+| 🪪 Student ID | 👤 Team Member |
 |:---:|:---|
-| 2620030089 | Manideep |
-| 2620030105 | Gowtham Sai |
-| 2620030104 | Vishwak |
+| `2620030089` | **Manideep** |
+| `2620030105` | **Gowtham Sai** |
+| `2620030104` | **Vishwak** |
+
+**Together, building a more interactive fashion experience.** 👗👔
 
 </div>
 
@@ -160,8 +205,8 @@ Then open **http://localhost:5000/** in your browser.
 
 # 👗 FITSY 👔
 
-### 👧🏻 Fashion for her · 👦🏻 Fashion for him · ✨ Style for everyone
+### **Fashion for Men. Fashion for Women. Style for Everyone.**
 
-**Find your look. Make it FITSY.**
+*Discover your look. Make it FITSY.* ✨
 
 </div>
